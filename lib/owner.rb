@@ -40,26 +40,23 @@ class Owner
   end
 
   def walk_dogs
-    pets[:dogs].each {|dog| dog.mood = "happy"}
+    pets[:dogs].each { |dog| dog.mood = 'happy'}
   end
 
   def play_with_cats
-    pets[:cats].each { |cat| cat.mood = "happy"}
+    pets[:cats].each { |cat| cat.mood = 'happy'}
   end
 
   def feed_fish
-    pets[:fishes].each { |fish| fish.mood = "happy"}
+    pets[:fishes].each { |fish| fish.mood = 'happy'}
   end
 
   def sell_pets
-    pets.each do |species, animals|
-      animals.each { |animal| animal.mood = "nervous"}
-      animals.clear
-    end
+    self.pets.each { |s, a| a.each { |a| a.mood = 'nervous'} }
+    self.pets.clear
   end
 
   def list_pets
     "I have #{pets[:fishes].count} fish, #{pets[:dogs].count} dog(s), and #{pets[:cats].count} cat(s)."
-    end
-
+  end
 end
