@@ -1,14 +1,5 @@
 class Owner
-  attr_accessor :name, :pets
-  attr_reader :species
-
   @@all = []
-
-  def initialize(species)
-    @species = species
-    @@all << self
-    @pets = {fishes: [], dogs: [], cats: []}
-  end
 
   def self.all
     @@all
@@ -20,6 +11,15 @@ class Owner
 
   def self.count
     self.all.count
+  end
+
+  attr_accessor :name, :pets
+  attr_reader :species
+
+  def initialize(species)
+    @species = species
+    @pets = {fishes: [], dogs: [], cats: []}
+    @@all << self
   end
 
   def say_species
@@ -39,19 +39,19 @@ class Owner
   end
 
   def walk_dogs
-    pets[:dogs].each {|dog| dog.mood = "happy"}
+    pets[:dogs].each {|d| d.mood = 'happy'}
   end
 
   def play_with_cats
-    pets[:cats].each {|cat| cat.mood = "happy"}
+    pets[:cats].each {|d| d.mood = 'happy'}
   end
 
   def feed_fish
-    pets[:fishes].each {|fish| fish.mood = "happy"}
+    pets[:fishes].each {|d| d.mood = 'happy'}
   end
 
   def sell_pets
-    pets.each {|species, animal| animal.each {|animal| animal.mood = "nervous"}}
+    pets.each {|s, a| a.each {|a| a.mood = "nervous"}}
     pets.clear
   end
 
