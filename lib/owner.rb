@@ -54,4 +54,9 @@ class Owner
     pets.each {|pet, s| s.each {|pet| pet.mood = 'nervous'}}
     pets.clear
   end
+
+  def list_pets
+    "I have #{pets[:fishes].count} fish, #{pets[:dogs].count} dogs(s), and #{pets[:cats].count} cat(s)."
+  end
+  
 end
